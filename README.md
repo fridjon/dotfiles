@@ -1,26 +1,33 @@
 # Mac setup and dotfiles
+
 Tools and instructions to speed up and automate my setup and configurations after clean re-installation of MacOS.
 
-
 ## Requirements
+
 MacOS, the following setup has a clean installation in mind.
 
-
 ## Make your own
+
 If you want to make your own setup based on this one I recommend the following steps:
 
 - Fork the repository
 - Edit the Brewfile
-  - Some apps however are required for later steps (e.g. nerd-font, iTerm2, mas, nvm, neofetch, jq, rbenv, p10k, zsh-*)
+  - Some apps however are required for later steps (e.g. nerd-font, iTerm2, mas, nvm, neofetch, jq, rbenv, p10k, zsh-\*)
 - Edit settings.sh to suit your own preferences
 - Edit mixin/aliases
   - PS. before you start adding your own aliases I recommend running `alias` and looking at what is already there, a lot of stuff comes with the Oh-My-Zsh plugins.
 - Follow the manual setup guide
 
-
 # Manual Setup
+
 ~~Unfortunately~~ it's a manual process, there's no single script that automates everything.  
 However that's all splendid, I enjoy going through the steps as well as maintaining this documentation.
+
+If you are on Apple silicon you might want to install Rosetta 2 in order to run x86 code by emulation. This is also needed for certain dockers only available as x86, most notoriously SQL Server.
+
+```bash
+softwareupdate --install-rosetta
+```
 
 Install the **Xcode Command Line Tools**
 
@@ -31,14 +38,15 @@ xcode-select --install
 ## Configure Git
 
 ```bash
-git config --global user.name "Birkir Brynjarsson"  
-git config --global user.email "*******@gmail.com"  
-git config --global github.user birkirbrynjarsson
+git config --global user.name "Friðjón Guðjohnsen"
+git config --global user.email "*******@gmail.com"
+git config --global github.user fridjon
 git config --global core.excludesfile ~/.gitignore
 echo .DS_Store >> ~/.gitignore
 ```
 
 ## Clone the repository
+
 Clone the repository and hide it in Finder with `chflags`
 
 ```bash
@@ -47,7 +55,6 @@ git clone https://github.com/birkirbrynjarsson/dotfiles
 chflags hidden dotfiles
 cd ~/dotfiles
 ```
-
 
 ## Install Applications
 
@@ -116,10 +123,10 @@ echo "pinentry-program /usr/local/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
 echo "use-agent" > ~/.gnupg/gpg.conf
 ```
 
-
 ## MacOS system preferences
 
 Run `settings.sh` to apply custom preferences for Finder, Menu bar, Dock etc.
+
 > These settings are what is most likely to break as the preferences and corresponding files change between Mac OS versions. To be safe, skip running this script (except the last osascript step in the file that updates the look of terminal.app) and change settings manually.
 
 ```bash
@@ -127,7 +134,6 @@ cd ~/dotfiles
 chmod +x settings.sh
 ./settings.sh
 ```
-
 
 ## Make the shell awesome with iTerm2, Zsh, Oh-My-Zsh, Powerlevel10k & neofetch
 
@@ -162,11 +168,11 @@ source ~/.zshrc
 ```
 
 If you get compaudit insecure directories error run:
+
 ```bash
 compaudit | xargs chmod g-w
 compaudit | xargs chmod o-w
 ```
-
 
 ### Ruby and Gems
 
@@ -183,8 +189,8 @@ Restart your terminal before installing gems
 gem install colorls
 ```
 
-
 ## Node
+
 Setup Node with nvm
 
 ```bash
@@ -201,8 +207,8 @@ Install global packages from `npmfile`
 cat ~/dotfiles/npmfile | xargs -L1 npm i -g > /dev/null
 ```
 
-
 ## Python
+
 With `pyenv` installed, get the latest version of python
 
 ```bash
@@ -214,7 +220,8 @@ pip install --upgrade pip
 ```
 
 ## Visual Studio Code settings
-I sync plugins and settings to Visual Studio Code with the [*Settings sync*](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) plugin. It requires a GitHub API Token with gist access. Check out the [configuration instructions](https://shanalikhan.github.io/2016/07/31/Visual-Studio-code-sync-setting-edit-manually.html). I store my GitHub API Token in a secure note with 1password.
+
+I sync plugins and settings to Visual Studio Code with the [_Settings sync_](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) plugin. It requires a GitHub API Token with gist access. Check out the [configuration instructions](https://shanalikhan.github.io/2016/07/31/Visual-Studio-code-sync-setting-edit-manually.html). I store my GitHub API Token in a secure note with 1password.
 
 My currently configured plugins can be found with:
 
@@ -229,12 +236,12 @@ curl -s https://api.github.com/gists/8b47741d950a86e46222eb8bfc293a9a \
 ## openpyn - NordVPN cli
 
 With wget, openvpn and python3 installed using pyenv, install [openpyn](https://github.com/jotyGill/openpyn-nordvpn)
+
 ```bash
 pip install openpyn
 sudo brew services start openvpn
 sudo openpyn --init
 ```
-
 
 ## Dropbox Desktop sync
 
@@ -244,10 +251,9 @@ Sync your Desktop between workstations, further instructions [here](https://www.
 ln -sv ~/Desktop ~/Dropbox/
 ```
 
-
 ## Private Config files
 
-I keep some config files, shell aliases and application preferences in a [private branch](https://24ways.org/2013/keeping-parts-of-your-codebase-private-on-github/) of this repository and copy them into their designated destination after installing the apps. 
+I keep some config files, shell aliases and application preferences in a [private branch](https://24ways.org/2013/keeping-parts-of-your-codebase-private-on-github/) of this repository and copy them into their designated destination after installing the apps.
 These files might contain Software Licenses, network addresses and other private data.
 
 ### Spotify CLI
@@ -261,7 +267,9 @@ echo 'CLIENT_SECRET="urCl13nt53cret"' >> ~/.shpotify.cfg
 ```
 
 ## Other Software
+
 Here's a list of other software that doesn't have a homebrew package
+
 ```
 Adobe Lightroom
 Adobe Photoshop
@@ -280,4 +288,5 @@ npmu
 ```
 
 ## Credits
+
 Thanks to the [dotfiles community](http://dotfiles.github.io/) and the creators/contributors there. Many of the aliases, settings etc. are borrowed from the repositories found there.
