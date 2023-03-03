@@ -64,7 +64,7 @@ cask "unity-hub"          # Unity Hub - Management tool for Unity
 # Development #
 cask "visual-studio-code" # Microsoft Visual Studio Code - Open-source code editor
 cask "postman"            # Postman - Collaboration platform for API development
-cask "hexfiend"           # Hex Fiend - Hex editor focussing on speed
+cask "hex-fiend"           # Hex Fiend - Hex editor focussing on speed
 ## Source control ##
 brew "gh"                 # GitHub command-line tool
 brew "git-secret"         # Bash-tool to store the private data inside a git repo
@@ -81,7 +81,7 @@ cask "1password"          # Password manager that keeps all passwords secure beh
 # Archiving utils #
 brew "p7zip"              # 7-Zip (high compression file archiver) implementation
 brew "pigz"               # Parallel gzip
-brew "unrar"              # Extract, view, and test RAR archives
+brew "rar"                # RAR Archiver - Archive manager for data compression and backups
 brew "upx"                # Compress/expand executable files
 
 # MEDIA MANIPULATION #
@@ -120,8 +120,8 @@ cask "transmission"       # Transmission - Open-source BitTorrent client
 cask "transmit"           # Transmit - File transfer application
 
 # Note taking #
-brew "obsidian"           # Obsidian - Knowledge base that works on top of a local folder of plain text Markdown files
-brew "notion"             # Notion - App to write, plan, collaborate, and get organized
+cask "obsidian"           # Obsidian - Knowledge base that works on top of a local folder of plain text Markdown files
+cask "notion"             # Notion - App to write, plan, collaborate, and get organized
 
 # Services #
 #---cask "spotify"            # Spotify - Music streaming service
