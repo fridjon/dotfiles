@@ -20,7 +20,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="powerlevel10k/powerlevel10k"
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -74,6 +74,12 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+# Add the osx plugin
+
+# Add the zsh-autosuggestions plugin
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 plugins=(
   brew
   colored-man-pages
@@ -87,13 +93,14 @@ plugins=(
   ng
   node
   npm
-  osx
+  macos
   pip
   vscode
   web-search
-  zsh_reload
   z
 )
+
+# zsh_reload
 
 source $ZSH/oh-my-zsh.sh
 
@@ -130,9 +137,9 @@ source $ZSH/oh-my-zsh.sh
 # --- PRIVATE CHANGES & SOURCED FILES --- #
 
 # Activate zsh plugins
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # zsh completions
 if type brew &>/dev/null; then
@@ -160,8 +167,8 @@ fi
 source $ZSHRC_PATH/mixins/p10k.zsh
 
 # /usr/local/opt/fzf/install
-[ -f $ZSHRC_PATH/mixins/.fzf.zsh ] && source $ZSHRC_PATH/mixins/.fzf.zsh
+# [ -f $ZSHRC_PATH/mixins/.fzf.zsh ] && source $ZSHRC_PATH/mixins/.fzf.zsh
 
 
 # Load Angular CLI autocompletion.
-source <(ng completion script)
+# source <(ng completion script)

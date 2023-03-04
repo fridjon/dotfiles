@@ -1,0 +1,21 @@
+Prevent password prompt on some brew install
+Prevent YES entry on some brew install
+
+Dot files - addition
+How to set finder options by script
+
+Set mouse secondary click to “Click right side”
+
+Set machine name
+
+Docker notes:
+	Settings | Features in development | Beta features :
+		Use Rosetta for x86/amd64 emulation on Apple Silicon: check
+
+ssh-add -K ~/.ssh/id_rsa => ssh-add --apple-use-keychain ~/.ssh/id_rsa
+
+chmod 600 ~/.ssh/github_rsa
+chmod 600 ~/.ssh/github_rsa.pub
+chmod 700 ~/.ssh
+
+ssh-add --apple-use-keychain ~/.ssh/github_rsa

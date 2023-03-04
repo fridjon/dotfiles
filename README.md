@@ -189,24 +189,6 @@ Restart your terminal before installing gems
 gem install colorls
 ```
 
-## Node
-
-Setup Node with nvm
-
-```bash
-mkdir ~/.nvm
-nvm install lts/erbium
-nvm install lts/dubnium
-nvm alias default lts/erbium
-nvm use default
-```
-
-Install global packages from `npmfile`
-
-```bash
-cat ~/dotfiles/npmfile | xargs -L1 npm i -g > /dev/null
-```
-
 ## Python
 
 With `pyenv` installed, get the latest version of python
@@ -217,6 +199,27 @@ PYTHON_CONFIGURE_OPTS="--enable-framework"
 pyenv install $PYTHON_LATEST
 pyenv global $PYTHON_LATEST
 pip install --upgrade pip
+```
+
+## Node
+
+Setup Node with nvm
+
+```bash
+mkdir ~/.nvm
+# nvm needs python 2.7
+pyenv shell 2.7
+nvm install 14
+nvm install 16
+nvm install 18
+nvm alias default 18
+nvm use default
+```
+
+Install global packages from `npmfile`
+
+```bash
+cat ~/dotfiles/npmfile | xargs -L1 npm i -g > /dev/null
 ```
 
 ## Visual Studio Code settings
@@ -233,38 +236,12 @@ curl -s https://api.github.com/gists/8b47741d950a86e46222eb8bfc293a9a \
 | grep name
 ```
 
-## openpyn - NordVPN cli
-
-With wget, openvpn and python3 installed using pyenv, install [openpyn](https://github.com/jotyGill/openpyn-nordvpn)
-
-```bash
-pip install openpyn
-sudo brew services start openvpn
-sudo openpyn --init
-```
-
-## Dropbox Desktop sync
-
-Sync your Desktop between workstations, further instructions [here](https://www.imore.com/how-sync-your-documents-desktop-and-any-other-folder-dropbox)
-
-```bash
-ln -sv ~/Desktop ~/Dropbox/
-```
 
 ## Private Config files
 
 I keep some config files, shell aliases and application preferences in a [private branch](https://24ways.org/2013/keeping-parts-of-your-codebase-private-on-github/) of this repository and copy them into their designated destination after installing the apps.
 These files might contain Software Licenses, network addresses and other private data.
 
-### Spotify CLI
-
-The `spotify` cli requires configuration.
-Add CLIENT_ID and CLIENT_SECRET to `~/.shpotify.cfg`, get this information by [creating an 'application'](https://developer.spotify.com/my-applications/#!/applications/create).
-
-```bash
-echo 'CLIENT_ID="urCl13nt1D"' > ~/.shpotify.cfg
-echo 'CLIENT_SECRET="urCl13nt53cret"' >> ~/.shpotify.cfg
-```
 
 ## Other Software
 
