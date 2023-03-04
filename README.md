@@ -20,41 +20,60 @@ If you want to make your own setup based on this one I recommend the following s
 
 # Manual Setup
 
-~~Unfortunately~~ it's a manual process, there's no single script that automates everything.  
-However that's all splendid, I enjoy going through the steps as well as maintaining this documentation.
+The setup process is manual but I find it helpful to split it up into stages.
 
-If you are on Apple silicon you might want to install Rosetta 2 in order to run x86 code by emulation. This is also needed for certain dockers only available as x86, most notoriously SQL Server.
+## Base stage
 
-```bash
-softwareupdate --install-rosetta
-```
+This stage sets up the bare necessities for the rest of the stages:
 
-Install the **Xcode Command Line Tools**
+- Install the **XCode Command Line tools**
+- Configure git account info for github.com
+- Clone the dotfiles repository
+
+### Install the **Xcode Command Line Tools**
 
 ```bash
 xcode-select --install
 ```
 
-## Configure Git
+### Configure git account info for github
+
+If you are not Friðjón, change this to your info
 
 ```bash
 git config --global user.name "Friðjón Guðjohnsen"
+# Redacted to protect the innocent
 git config --global user.email "*******@gmail.com"
 git config --global github.user fridjon
 git config --global core.excludesfile ~/.gitignore
 echo .DS_Store >> ~/.gitignore
 ```
 
-## Clone the repository
-
-Clone the repository and hide it in Finder with `chflags`
+### Clone the dotfiles repository
 
 ```bash
-cd ~
 git clone https://github.com/fridjon/dotfiles
+# Hide the dotfiles folder so it does not show up in finder
 chflags hidden dotfiles
-cd ~/dotfiles
 ```
+
+## shell stage
+
+This stage sets up the shell environment in a nice and pleasing way
+
+Other stages
+
+## Framework stage
+
+Python, node, and other runtime / frameworks
+
+## Docker stage
+
+Docker, kubernetes and related
+
+## Application stage
+
+Various application not strictly development related
 
 ## Install Applications
 
@@ -75,6 +94,12 @@ Install applications from **Brewfile** and optionally a secondary file, `Brewfil
 ```bash
 cd ~/dotfiles
 brew bundle -v
+```
+
+If you are on Apple silicon you might want to install Rosetta 2 in order to run x86 code by emulation. This is also needed for certain dockers only available as x86, most notoriously SQL Server.
+
+```bash
+softwareupdate --install-rosetta
 ```
 
 ## SSH keys
@@ -236,12 +261,10 @@ curl -s https://api.github.com/gists/8b47741d950a86e46222eb8bfc293a9a \
 | grep name
 ```
 
-
 ## Private Config files
 
 I keep some config files, shell aliases and application preferences in a [private branch](https://24ways.org/2013/keeping-parts-of-your-codebase-private-on-github/) of this repository and copy them into their designated destination after installing the apps.
 These files might contain Software Licenses, network addresses and other private data.
-
 
 ## Other Software
 
