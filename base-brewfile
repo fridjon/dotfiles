@@ -1,0 +1,67 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "romkatv/powerlevel10k"
+tap "microsoft/mssql-release"
+
+# CORE STUFF #
+brew "coreutils"          # GNU File, Shell, and Text utilities
+brew "fd"                 # Simple, fast and user-friendly alternative to find
+brew "fzf"                # Command-line fuzzy finder written in Go
+brew "zsh-autosuggestions"# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-completions"    # Additional completion definitions for zsh
+brew "zsh-history-substring-search" # Zsh port of Fish shell's history search
+brew "zsh-syntax-highlighting" # Fish shell like syntax highlighting for zsh
+brew "romkatv/powerlevel10k/powerlevel10k" # A Zsh Theme
+brew "tldr"               # Simplified and community-driven man pages
+brew "tree"               # Display directories as trees (with optional color/HTML output)
+cask "iterm2"             # iTerm2 - Terminal emulator as alternative to Apple's Terminal app
+cask "font-roboto-mono-nerd-font" # RobotoMono Nerd Font (Roboto Mono) - Developer targeted fonts with a high number of glyphs
+
+# CORE UTILS #
+brew "htop"               # Improved top (interactive process viewer)
+brew "ack"                # Search tool like grep, but optimized for programmers
+brew "jq"                 # Lightweight and flexible command-line JSON processor
+brew "neofetch"           # Fast, highly customisable system info script
+brew "wget"               # Internet file retriever
+brew "yq"                 # Process YAML, JSON, XML, CSV and properties documents from the CLI
+
+
+# Development #
+cask "visual-studio-code" # Microsoft Visual Studio Code - Open-source code editor
+cask "hex-fiend"          # Hex Fiend - Hex editor focussing on speed
+
+## Source control ##
+brew "gh"                 # GitHub command-line tool
+cask "github"             # GitHub Desktop - Desktop client for GitHub repositories
+
+# Network tools #
+brew "nmap"               # Port scanning utility for large networks
+
+
+# Archiving utils #
+brew "p7zip"              # 7-Zip (high compression file archiver) implementation
+brew "pigz"               # Parallel gzip
+brew "rar"                # RAR Archiver - Archive manager for data compression and backups
+brew "upx"                # Compress/expand executable files
+
+# Remote clients #
+cask "google-chrome"      # Google Chrome - Web browser
+
+# Note taking #
+cask "obsidian"           # Obsidian - Knowledge base that works on top of a local folder of plain text Markdown files
+cask "notion"             # Notion - App to write, plan, collaborate, and get organized
+
+
+# Apple Mac Specific stuff #
+brew "mas"                # Mac App Store command-line interface
+## QuickLook plugins ##
+cask "qlcolorcode"        # QLColorCode - QuickLook plug-in that renders source code with syntax highlighting
+cask "qlimagesize"        # qlImageSize - Display image info and preview unsupported formats in QuickLook
+cask "qlmarkdown"         # sbarex-qlmarkdown - QuickLook generator for Markdown files
+cask "qlstephen"          # QLStephen - QuickLook plugin for plaintext files without an extension
+cask "quicklook-csv"      # QuickLookCSV - QuickLook plugin for CSV files 
+cask "quicklook-json"     # quick look JSON - QuickLook plugin for JSON files
+

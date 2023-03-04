@@ -1,0 +1,22 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "romkatv/powerlevel10k"
+tap "microsoft/mssql-release"
+
+# Docker #
+cask "docker"             # Docker Desktop - App to build and share containerized applications and microservices
+
+# Azure #
+brew "azure-cli"          # Microsoft Azure CLI 2.0
+
+# ArgoCd #
+brew argocd               # Argo CD - argocd controls a Argo CD server
+# Kubernetes #
+brew "kubernetes-cli"     # Kubernetes command-line interface
+brew "kubectx"            # Tool that can switch between kubectl contexts easily and create aliases
+brew "helm"               # Kubernetes package manager
+
+# cask "kitematic"          # Kitematic - Visual user interface for Docker Container management

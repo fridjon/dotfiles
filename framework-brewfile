@@ -6,10 +6,50 @@ tap "homebrew/core"
 tap "romkatv/powerlevel10k"
 tap "microsoft/mssql-release"
 
+# FRAMEWORKS - All sorts of framework and related #
+## Runtime environments ##
+### Node JS ###
+brew "nvm"                # Manage multiple Node.js versions
+### Python ###
+brew "pipenv"             # Python dependency management tool
+brew "pyenv"              # Python version management
+brew "pygments"           # Generic syntax highlighter
+### Ruby ###
+# brew "rbenv"              # Ruby version manager
+# brew "ruby-build"         # Install various Ruby versions and implementations
+### Groovy ###
+# brew "gradle"             # Open-source build automation tool based on the Groovy and Kotlin DSL
+### Java ###
+# cask "homebrew/cask-versions/adoptopenjdk8" # AdoptOpenJDK 8 - Prebuilt OpenJDK binaries
+### Dotnet ###
+brew "dotnet"             # .NET Core
+cask "dotnet-sdk"         # .NET SDK - Developer platform
+### Deno ###
+brew "deno"               # Secure runtime for JavaScript and TypeScript
+### Android ###
+cask "android-sdk"        # android-sdk
+### Mono ###
+# brew "mono"               # Cross platform, open source .NET development framework
+### Unity ###
+#cask "unity-hub"          # Unity Hub - Management tool for Unity
+## Databases ##
+### MS SQL SERVER ###
+brew "msodbcsql"          # ODBC Driver for Microsoft(R) SQL Server(R)
+brew "mssql-tools"        # Sqlcmd and Bcp for Microsoft(R) SQL Server(R)
+cask "azure-data-studio"  # Azure Data Studio - Data management tool that enables working with SQL Server
+
+
+
+
 # Password management #
 cask "macpass"            # Open-source, KeePass-client and password manager
 cask "1password"          # Password manager that keeps all passwords secure behind one password
 
+# Archiving utils #
+brew "p7zip"              # 7-Zip (high compression file archiver) implementation
+brew "pigz"               # Parallel gzip
+brew "rar"                # RAR Archiver - Archive manager for data compression and backups
+brew "upx"                # Compress/expand executable files
 
 # MEDIA MANIPULATION #
 brew "ffmpeg"             # Play, record, convert, and stream audio and video
@@ -55,9 +95,6 @@ cask "notion"             # Notion - App to write, plan, collaborate, and get or
 #---cask "steam"              # Steam - Video game digital distribution service
 #---cask "dropbox"            # Dropbox - Client for the Dropbox cloud storage service
 cask "amazon-photos"      # Amazon Photos - Photo storage and sharing service
-
-# Secondary development stuff
-cask "postman"            # Postman - Collaboration platform for API development
 
 # Various cool nerd stuff #
 brew "s-search"           # Web search from the terminal

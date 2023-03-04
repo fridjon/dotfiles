@@ -29,6 +29,7 @@ This stage sets up the bare necessities for the rest of the stages:
 - Install the **XCode Command Line tools**
 - Configure git account info for github.com
 - Clone the dotfiles repository
+- Install [**Homebrew**](https://brew.sh/)
 
 ### Install the **Xcode Command Line Tools**
 
@@ -57,6 +58,19 @@ git clone https://github.com/fridjon/dotfiles
 chflags hidden dotfiles
 ```
 
+### Install [**Homebrew**](https://brew.sh/)
+
+```bash
+# Will prompt for password and requires [enter]. Also need to run two manual commands that are output
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
+
+Allow apps downloaded from anywhere before installing with Brew
+
+```bash
+sudo spctl --master-disable
+```
+
 ## shell stage
 
 This stage sets up the shell environment in a nice and pleasing way
@@ -76,18 +90,6 @@ Docker, kubernetes and related
 Various application not strictly development related
 
 ## Install Applications
-
-Install [**Homebrew**](https://brew.sh/)
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-```
-
-Allow apps downloaded from anywhere before installing with Brew
-
-```bash
-sudo spctl --master-disable
-```
 
 Install applications from **Brewfile** and optionally a secondary file, `Brewfile2`
 
