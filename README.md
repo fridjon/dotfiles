@@ -73,7 +73,14 @@ sudo spctl --master-disable
 
 ## shell stage
 
-This stage sets up the shell environment in a nice and pleasing way
+This stage sets up the shell environment in a nice and pleasing way. Firs
+
+### Install applications from **base-brewfile**
+
+```bash
+cd ~/dotfiles
+brew bundle -v
+```
 
 Other stages
 
