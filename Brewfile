@@ -75,7 +75,7 @@ brew "nmap"               # Port scanning utility for large networks
 
 
 # Password management #
-brew "macpass"            # Open-source, KeePass-client and password manager
+cask "macpass"            # Open-source, KeePass-client and password manager
 cask "1password"          # Password manager that keeps all passwords secure behind one password
 
 # Archiving utils #
