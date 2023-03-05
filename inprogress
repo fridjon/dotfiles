@@ -19,3 +19,5 @@ chmod 600 ~/.ssh/github_rsa.pub
 chmod 700 ~/.ssh
 
 ssh-add --apple-use-keychain ~/.ssh/github_rsa
+
+Add stuff to set iterm2 fontsize to 14

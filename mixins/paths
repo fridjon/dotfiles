@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
 # Ruby, rbenv
-RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)"
-eval "$(rbenv init -)"
+# RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)"
+# eval "$(rbenv init -)"
 
 # Python, pyenv
 PATH="$HOME/.pyenv/bin:$PATH"

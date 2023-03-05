@@ -14,6 +14,7 @@ If you want to make your own setup based on this one I recommend the following s
 - Edit the Brewfile
   - Some apps however are required for later steps (e.g. nerd-font, iTerm2, mas, nvm, neofetch, jq, rbenv, p10k, zsh-\*)
 - Edit settings.sh to suit your own preferences
+  - The github repo https://github.com/mathiasbynens/dotfiles contains a lot of like minded tweaks.
 - Edit mixin/aliases
   - PS. before you start adding your own aliases I recommend running `alias` and looking at what is already there, a lot of stuff comes with the Oh-My-Zsh plugins.
 - Follow the manual setup guide
@@ -79,37 +80,78 @@ This stage sets up the shell environment in a nice and pleasing way. Firs
 
 ```bash
 cd ~/dotfiles
-brew bundle -v
+brew bundle --file brews/Brewfile-base -v
+# dotnet-sdk requires password, expressvpn requires password, msodbcsql requires YES, mssql-tools requires YES (twice)
+brew bundle --file brews/Brewfile-frameworks -v
+brew bundle --file brews/Brewfile-apps -v
+brew bundle --file brews/Brewfile-docker -v
 ```
 
-Other stages
 
-## Framework stage
+## MacOS system preferences
 
-Python, node, and other runtime / frameworks
+Run `settings.sh` to apply custom preferences for Finder, Menu bar, Dock etc.
 
-## Docker stage
+> These settings are what is most likely to break as the preferences and corresponding files change between Mac OS versions. To be safe, skip running this script (except the last osascript step in the file that updates the look of terminal.app) and change settings manually.
 
-Docker, kubernetes and related
-
-## Application stage
-
-Various application not strictly development related
-
-## Install Applications
-
-Install applications from **Brewfile** and optionally a secondary file, `Brewfile2`
+Also note that the github repo https://github.com/mathiasbynens/dotfiles contains a lot of like minded tweaks.
 
 ```bash
 cd ~/dotfiles
-brew bundle -v
+chmod +x settings.sh
+./settings.sh
 ```
+
+## Make the shell awesome with iTerm2, Zsh, Oh-My-Zsh, Powerlevel10k & neofetch
+
+![iTerm2 Screenshot](https://i.imgur.com/NLdVDPS.png "iTerm2 after customization")
+
+Set preferences for iTerm2
+
+```bash
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2"
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+```
+
+Install **[Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh)**
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+### Zsh Profile +
+
+Source the ZSH profile and other config files (optionally restart Terminal/iTerm2 after creating the symlink)
+
+```bash
+# Symlink neofetch config and .vimrc
+touch ~/.hushlogin
+mkdir -p ~/.config/neofetch
+ln -svf ~/dotfiles/neofetch/config.conf ~/.config/neofetch/
+ln -svf ~/dotfiles/.vimrc ~/
+# Symlink .zshrc
+ln -svf ~/dotfiles/.zshrc ~/
+source ~/.zshrc
+```
+
+If you get compaudit insecure directories error run:
+
+```bash
+compaudit | xargs chmod g-w
+compaudit | xargs chmod o-w
+```
+
+###########################
+
+
 
 If you are on Apple silicon you might want to install Rosetta 2 in order to run x86 code by emulation. This is also needed for certain dockers only available as x86, most notoriously SQL Server.
 
 ```bash
 softwareupdate --install-rosetta
 ```
+
+TODO: Add stuff to configure docker to use Rosetta2
 
 ## SSH keys
 
@@ -121,6 +163,12 @@ chmod 600 ~/.ssh/id_rsa.pub
 chmod 700 ~/.ssh
 ```
 
+If you have not created a ssh key, or wish to create a new one  you can do that with the following.
+
+```bash
+cd ~/.ssh
+ssh-keygen -t ed25519 -C "*****@gmail.com"
+```
 Create `~/.ssh/config` and modify it to automatically load keys into ssh-agent and store passphrases in keychain.
 
 ```bash
@@ -135,7 +183,7 @@ Host *
 Add the private key to the `ssh-agent` and store the potential passphrase in the keychain.
 
 ```bash
-ssh-add -K ~/.ssh/id_rsa
+ssh-add --apple-use-keychain ~/.ssh/github-220305
 ```
 
 If the public **SSH-key** has been added to [GitHub](https://github.com/settings/ssh), the connection can be tested
@@ -242,8 +290,8 @@ Setup Node with nvm
 ```bash
 mkdir ~/.nvm
 # nvm needs python 2.7
+pyenv install 2.7
 pyenv shell 2.7
-nvm install 14
 nvm install 16
 nvm install 18
 nvm alias default 18

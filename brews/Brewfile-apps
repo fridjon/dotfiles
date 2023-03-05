@@ -27,7 +27,7 @@ brew "hugo"               # Configurable static site generator
 brew "openconnect"        # Open client for Cisco AnyConnect VPN
 brew "openvpn"            # SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension
 cask "expressvpn"         # ExpressVPN - VPN client for secure internet access and private browsing
-cask "nordvpn"            # NordVPN - VPN client for secure internet access and private browsing
+#cask "nordvpn"            # NordVPN - VPN client for secure internet access and private browsing
 
 # CLI Clients #
 #---brew "haste-client"       # CLI client for haste-server

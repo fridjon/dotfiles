@@ -44,7 +44,6 @@ brew "nmap"               # Port scanning utility for large networks
 # Archiving utils #
 brew "p7zip"              # 7-Zip (high compression file archiver) implementation
 brew "pigz"               # Parallel gzip
-brew "rar"                # RAR Archiver - Archive manager for data compression and backups
 brew "upx"                # Compress/expand executable files
 
 # Remote clients #

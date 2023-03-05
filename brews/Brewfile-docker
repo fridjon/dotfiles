@@ -13,7 +13,7 @@ cask "docker"             # Docker Desktop - App to build and share containerize
 brew "azure-cli"          # Microsoft Azure CLI 2.0
 
 # ArgoCd #
-brew argocd               # Argo CD - argocd controls a Argo CD server
+brew "argocd"             # Argo CD - argocd controls a Argo CD server
 # Kubernetes #
 brew "kubernetes-cli"     # Kubernetes command-line interface
 brew "kubectx"            # Tool that can switch between kubectl contexts easily and create aliases
